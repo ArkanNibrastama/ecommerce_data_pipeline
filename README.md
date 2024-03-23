@@ -1,1 +1,1 @@
-# ecommerce_data_pipeline
+# E-Commerce Data Pipeline
