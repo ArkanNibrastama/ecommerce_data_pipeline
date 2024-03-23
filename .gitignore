@@ -1,5 +1,5 @@
 venv/*
 ga4_api_credentials.json
 */.env
-*/_pycache_/*
+*/__pycache__/*
 */cred.py
