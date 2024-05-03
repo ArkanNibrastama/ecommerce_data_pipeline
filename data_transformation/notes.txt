@@ -1,0 +1,43 @@
+transformed -> raw
+
+• order_id -> id
+• order_date -> created_at
+
+⚠️consider not to add because the data can be change (must be cdc)
+• order_status (wait for payments/processed/cencelled/delivered) -> fulfillment_status & cancelled_at & financial_status
+    ◌ if fulfillment_status filled; order_status = delivered
+    ◌ if cancelled_at filled; order_status = cencelled
+    ◌ if financial_status is pending; order_status = wait for payments
+    ◌ else; order_status = processed
+
+• payment_gateway -> payment_gateway_names
+• shipping_code -> shipping_lines->code
+• shipping_province -> sipping_address->province
+• shipping_country -> shipping_address -> country
+• shipment_cost -> shipping_lines->price
+• customer_id -> customer -> id
+• is_email_marketing -> customer->email_marketing_consent
+• is_sms_marketing -> customer->sms_amrketing_consent
+• customer_province -> customer->default_address->province
+• customer_country -> customer->default_address->country
+• product_name -> line_items (looping) -> title
+• product_variant -> line_items (looping) -> variant_title
+• product_vendor -> line_items (looping) -> vendor
+• product_price -> line_items (looping) -> price
+• quantity -> line_items (looping) -> quantity
+• total_product_price -> product_price * quantity
+• total_tax_product -> line_items (looping) -> tax_lines -> price
+
+
+notes:
+- total_order_pirce = sql group by order_id then sum (total_product_price)
+- total_tax = sql group by order_id then sum(total_tax_product)
+- total_transaction = sql group by order id then total_order_pirce + total_tax
+
+
+
+
+question:
+-   saya mau confirm aja mba delle, kak em. ini berarti tugasnya kita nyari terus
+    ngelist data mana aja yang duplikat ya? kalau suda ketemu data dosen gandanya 
+    itu diapain ya?
