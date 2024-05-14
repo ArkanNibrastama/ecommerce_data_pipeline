@@ -1,1 +1,3 @@
-ShopifyAPI==12.4.0
+requests==2.31.0
+pyspark==3.5.1
+great-expectations==0.18.13

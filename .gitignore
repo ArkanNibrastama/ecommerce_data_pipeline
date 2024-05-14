@@ -1,5 +1,3 @@
 venv/*
-ga4_api_credentials.json
-*/.env
 */__pycache__/*
-*/cred.py
+*/creds.py

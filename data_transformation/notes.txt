@@ -37,7 +37,5 @@ notes:
 
 
 
-question:
--   saya mau confirm aja mba delle, kak em. ini berarti tugasnya kita nyari terus
-    ngelist data mana aja yang duplikat ya? kalau suda ketemu data dosen gandanya 
-    itu diapain ya?
+
+
