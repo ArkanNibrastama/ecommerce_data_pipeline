@@ -42,16 +42,60 @@ validator.expect_column_to_exist(column='quantity')
 validator.expect_column_to_exist(column='total_product_price')
 validator.expect_column_to_exist(column='total_tax_product')
 
-validator.expect_column_values_to_not_be_null(
-    column="id"
-)
+validator.expect_column_values_to_be_null(column='id')
+validator.expect_column_values_to_be_null(column='order_date')
+validator.expect_column_values_to_be_null(column='payment_gateway')
+validator.expect_column_values_to_be_null(column='shipping_code')
+validator.expect_column_values_to_be_null(column='shipping_province')
+validator.expect_column_values_to_be_null(column='shipping_country')
+validator.expect_column_values_to_be_null(column='shipping_cost')
+validator.expect_column_values_to_be_null(column='customer_id')
+validator.expect_column_values_to_be_null(column='is_email_marketing')
+validator.expect_column_values_to_be_null(column='is_sms_marketing')
+validator.expect_column_values_to_be_null(column='customer_province')
+validator.expect_column_values_to_be_null(column='customer_country')
+validator.expect_column_values_to_be_null(column='product_name')
+validator.expect_column_values_to_be_null(column='product_variant')
+validator.expect_column_values_to_be_null(column='product_vendor')
+validator.expect_column_values_to_be_null(column='product_price')
+validator.expect_column_values_to_be_null(column='quantity')
+validator.expect_column_values_to_be_null(column='total_product_price')
+validator.expect_column_values_to_be_null(column='total_tax_product')
 
-validator.expect_column_values_to_be_of_type(
-    column="id",
-    type_="StringType"
-)
+validator.expect_column_values_to_be_of_type(column='id', type_='StringType')
+validator.expect_column_values_to_be_of_type(column='order_date', type_='TimestampType')
+validator.expect_column_values_to_be_of_type(column='payment_gateway', type_='StringType')
+validator.expect_column_values_to_be_of_type(column='shipping_code', type_='StringType')
+validator.expect_column_values_to_be_of_type(column='shipping_province', type_='StringType')
+validator.expect_column_values_to_be_of_type(column='shipping_country', type_='StringType')
+validator.expect_column_values_to_be_of_type(column='shipping_cost', type_='LongType')
+validator.expect_column_values_to_be_of_type(column='customer_id', type_='StringType')
+validator.expect_column_values_to_be_of_type(column='is_email_marketing', type_='BooleanType')
+validator.expect_column_values_to_be_of_type(column='is_sms_marketing', type_='BooleanType')
+validator.expect_column_values_to_be_of_type(column='customer_province', type_='StringType')
+validator.expect_column_values_to_be_of_type(column='customer_country', type_='StringType')
+validator.expect_column_values_to_be_of_type(column='product_name', type_='StringType')
+validator.expect_column_values_to_be_of_type(column='product_variant', type_='StringType')
+validator.expect_column_values_to_be_of_type(column='product_vendor', type_='StringType')
+validator.expect_column_values_to_be_of_type(column='product_price', type_='LongType')
+validator.expect_column_values_to_be_of_type(column='quantity', type_='IntegerType')
+validator.expect_column_values_to_be_of_type(column='total_product_price', type_='LongType')
+validator.expect_column_values_to_be_of_type(column='total_tax_product', type_='LongType')
 
 # if wanna test the unit case, make a checkpoint and test it
+checkpoint = context.add_or_update_checkpoint(
+    name="my_checkpoint",
+    validations=[
+        {
+            "batch_request": batch_req,
+            "expectation_suite_name": "my_expectation_suite",
+        },
+    ],
+)
+
+checkpoint_result = checkpoint.run()
+
+print(checkpoint_result)
 
 # save great expectaitons suite (test case template)
 validator.save_expectation_suite('gx/expectations/data_quality.json')

@@ -12,7 +12,7 @@ spark = SparkSession.builder.master("spark://10.227.33.118:7077").appName("tes")
 empty_RDD = spark.sparkContext.emptyRDD()
 
 schema = StructType([
-    StructField('id', IntegerType(), True), #->[done] transform into string
+    StructField('id', StringType(), True), #->[done] transform into string
     StructField('order_date', TimestampType(), True), #-> [done] transform into datetime / timestamp
     StructField('payment_gateway', StringType(), True),
     StructField('shipping_code', StringType(), True),
