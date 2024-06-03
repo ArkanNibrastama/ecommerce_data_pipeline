@@ -5,8 +5,8 @@ import json
 from google.cloud import storage
 import os
 
-# dateyesterday = (datetime.now()-timedelta(days=1)).strftime("%Y-%m-%d")
-dateyesterday = "2024-05-25"
+dateyesterday = (datetime.now()-timedelta(days=1)).strftime("%Y-%m-%d")
+# dateyesterday = "2024-05-25"
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/service_acc_key.json"
 

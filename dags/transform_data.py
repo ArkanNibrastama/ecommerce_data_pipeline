@@ -2,7 +2,7 @@ from pyspark.sql import SparkSession
 import pyspark.sql.functions as f
 from pyspark.sql.types import StringType, StructField,  StructType, IntegerType, LongType, TimestampType, BooleanType
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import re
 from google.cloud import storage
 import json
@@ -46,8 +46,8 @@ gcs = storage.Client()
 raw_bucket_name = "arkan-ecommerce-data-pipeline-raw"
 transformed_bucked_name  = "arkan-ecommerce-data-pipeline-transformed"
 
-# dateyesterday = (datetime.now()-timedelta(days=1)).strftime("%Y-%m-%d")
-dateyesterday = "2024-05-25"
+dateyesterday = (datetime.now()-timedelta(days=1)).strftime("%Y-%m-%d")
+# dateyesterday = "2024-05-25"
 
 json_files = [js.name for js in gcs.list_blobs(raw_bucket_name) if re.match(rf"{dateyesterday}_.\.json", js.name)]
 for json_file in json_files:
