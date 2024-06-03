@@ -6,8 +6,6 @@ from airflow import DAG
 from airflow.utils.dates import days_ago
 from ingest_data import main as data_ingestion
 
-
-
 dateyesterday = "2024-05-25"
 
 args = {
