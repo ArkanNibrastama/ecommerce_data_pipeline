@@ -5,9 +5,8 @@ from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQue
 from airflow import DAG
 from airflow.utils.dates import days_ago
 from ingest_data import main as data_ingestion
-import os
 
-# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/service_acc_key.json"
+
 
 dateyesterday = "2024-05-25"
 
