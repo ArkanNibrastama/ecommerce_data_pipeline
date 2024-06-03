@@ -1,7 +1,0 @@
-id,order_date,payment_gateway,shipping_code,shipping_province,shipping_country,shipping_cost,customer_id,is_email_marketing,is_sms_marketing,customer_province,customer_country,product_name,product_variant,product_vendor,product_price,quantity,total_product_price,total_tax_product
-5919722307883,2024-05-01T16:01:10.000+07:00,manual payments,Standard,Lampung,Indonesia,0,7817898524971,true,false,Lampung,Indonesia,Example Hat,S / White,Acme,15000,1,15000,1500
-5919672041771,2024-05-01T14:29:20.000+07:00,bogus,Standard,Jakarta,Indonesia,0,7902579228971,true,false,Jakarta,Indonesia,Example T-Shirt,"Lithograph - Height: 9\" x Width: 12\"",Acme,15000,4,60000,6000
-5919650545963,2024-05-01T14:14:55.000+07:00,bogus,Standard,Jakarta,Indonesia,0,7902579228971,true,false,Jakarta,Indonesia,Example T-Shirt,Medium,Acme,25000,2,50000,5000
-5919650545963,2024-05-01T14:14:55.000+07:00,bogus,Standard,Jakarta,Indonesia,0,7902579228971,true,false,Jakarta,Indonesia,Example Hat,L / Grey,Acme,19000,3,57000,5700
-5919648547115,2024-05-01T14:11:46.000+07:00,bogus,Standard,Jakarta,Indonesia,0,7902579228971,true,false,Jakarta,Indonesia,Example Hat,XL / White,Acme,15000,1,15000,1500
-5900381323563,2024-04-17T23:29:29.000+07:00,bogus,coba,Lampung,Indonesia,1000,7817898524971,true,false,Lampung,Indonesia,Example T-Shirt,Small,Acme,25000,1,25000,2500

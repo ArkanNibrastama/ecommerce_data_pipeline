@@ -1,0 +1,16 @@
+FROM bitnami/spark:3.5.1
+
+USER root
+
+RUN install_packages curl
+
+RUN curl https://storage.googleapis.com/hadoop-lib/gcs/gcs-connector-hadoop3-latest.jar --output /opt/bitnami/spark/jars/gcs-connector-hadoop3-latest.jar
+
+RUN apt update && \
+    apt-get install nano
+
+COPY ./dags/transform_data.py /
+COPY ./service_acc_key.json /
+    
+COPY ./requirements_spark.txt /
+RUN pip install -r /requirements_spark.txt
