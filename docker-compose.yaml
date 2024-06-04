@@ -86,10 +86,3 @@ services:
 networks:
   airflow-spark:
 
-# penting utk docs:
-# push creds dalam bentuk variable dummy (kyk service_acc_key.json)
-# chmod -R 777 logs/ => kasih permission duluu ke foldernya sebelum docker-compose
-
-# note:
-# docker start container_name => cara start ulang container yang exit
-# sudo docker container run --name scheduler -d 505b2688865b bash -c "airflow db migrate && airflow users create --username admin --firstname Joao --lastname Muniz --role Admin --email jv.munizkali@gmail.com --password admin && airflow scheduler"
