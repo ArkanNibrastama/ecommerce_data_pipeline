@@ -1,11 +1,12 @@
 import creds
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import json
 from google.cloud import storage
 import os
 
-dateyesterday = (datetime.now()-timedelta(days=1)).strftime("%Y-%m-%d")
+# utc+7 (follow indonesia timezone)
+dateyesterday = (datetime.now().astimezone(timezone(timedelta(hours=7)))-timedelta(days=1)).strftime("%Y-%m-%d")
 # dateyesterday = "2024-05-25"
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/service_acc_key.json"

@@ -2,13 +2,13 @@ import pytest
 from google.cloud import storage
 import pandas as pd
 import numpy as np
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import re
 import io
 import os
 
 transformed_bucked_name  = "arkan-ecommerce-data-pipeline-transformed"
-dateyesterday = (datetime.now()-timedelta(days=1)).strftime("%Y-%m-%d")
+dateyesterday = (datetime.now().astimezone(timezone(timedelta(hours=7)))-timedelta(days=1)).strftime("%Y-%m-%d")
 # dateyesterday = "2024-05-25"
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/service_acc_key.json"

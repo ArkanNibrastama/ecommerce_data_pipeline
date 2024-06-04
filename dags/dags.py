@@ -5,9 +5,9 @@ from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQue
 from airflow import DAG
 from airflow.utils.dates import days_ago
 from ingest_data import main as data_ingestion
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
-dateyesterday = (datetime.now()-timedelta(days=1)).strftime("%Y-%m-%d")
+dateyesterday = (datetime.now().astimezone(timezone(timedelta(hours=7)))-timedelta(days=1)).strftime("%Y-%m-%d")
 # dateyesterday = "2024-05-25"
 
 args = {

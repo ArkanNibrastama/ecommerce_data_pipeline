@@ -1,4 +1,4 @@
 {
-    "service_acc" : "your_gcp_service_acc"
+  "SERVICE_ACC_KEY" : "YOUR SERVICE ACCOUNT JSON FILE"    
 }
   

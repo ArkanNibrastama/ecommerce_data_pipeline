@@ -1,6 +1,5 @@
 venv/*
 */__pycache__/*
-*/creds.py
-./service_acc_key.json
+*/secret_key.txt
 */.pytest_cache/*
 logs/*
