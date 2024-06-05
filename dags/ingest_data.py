@@ -7,7 +7,6 @@ import os
 
 # utc+7 (follow indonesia timezone)
 dateyesterday = (datetime.now().astimezone(timezone(timedelta(hours=7)))-timedelta(days=1)).strftime("%Y-%m-%d")
-# dateyesterday = "2024-05-25"
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/service_acc_key.json"
 
@@ -29,7 +28,7 @@ def ingest(start_date, end_date):
     orders = store.get(creds.url+"/admin/api/"+creds.api_version+"/orders.json?status=any&created_at_min="+start_date+"&created_at_max="+end_date)
     order_json = orders.json()
 
-    # return semua order
+    # return all order
     for i, order in enumerate(order_json['orders']):
 
         blob = bucket.blob(dateyesterday+"_"+str(i)+'.json')

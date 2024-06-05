@@ -47,7 +47,6 @@ raw_bucket_name = "arkan-ecommerce-data-pipeline-raw"
 transformed_bucked_name  = "arkan-ecommerce-data-pipeline-transformed"
 
 dateyesterday = (datetime.now().astimezone(timezone(timedelta(hours=7)))-timedelta(days=1)).strftime("%Y-%m-%d")
-# dateyesterday = "2024-05-25"
 
 json_files = [js.name for js in gcs.list_blobs(raw_bucket_name) if re.match(rf"{dateyesterday}_.\.json", js.name)]
 for json_file in json_files:

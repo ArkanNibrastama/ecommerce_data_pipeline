@@ -3,12 +3,12 @@ from airflow.operators.python import PythonOperator
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
 from airflow import DAG
-from airflow.utils.dates import days_ago
+import pendulum.day
 from ingest_data import main as data_ingestion
 from datetime import datetime, timedelta, timezone
+import pendulum
 
 dateyesterday = (datetime.now().astimezone(timezone(timedelta(hours=7)))-timedelta(days=1)).strftime("%Y-%m-%d")
-# dateyesterday = "2024-05-25"
 
 args = {
     "owner" : "arkan"
@@ -18,7 +18,7 @@ with DAG(
     dag_id='ecommerce-data-pipeline',
     default_args=args,
     schedule_interval="1 0 * * *", #running dag every 00:01 AM every day
-    start_date=days_ago(1)
+    start_date=pendulum.datetime(2024, 5, 1, tz="Asia/Bangkok")
 ) as dag:
     
     ingest_data = PythonOperator(

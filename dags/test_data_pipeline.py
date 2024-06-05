@@ -9,7 +9,6 @@ import os
 
 transformed_bucked_name  = "arkan-ecommerce-data-pipeline-transformed"
 dateyesterday = (datetime.now().astimezone(timezone(timedelta(hours=7)))-timedelta(days=1)).strftime("%Y-%m-%d")
-# dateyesterday = "2024-05-25"
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/service_acc_key.json"
 
@@ -47,5 +46,3 @@ def test_datatype_col_is_email_marketing():
 
 def test_datatype_col_is_sms_marketing():
     assert (df['is_sms_marketing'].isin([True, False]).any())
-
-# usign airflow bash operator
